@@ -1,35 +1,36 @@
 import mongoose from "mongoose";
-import { Schema } from "mongoose";
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
   firstname: {
     type: String,
-    require: true,
+    required: true,
   },
   lastname: {
     type: String,
-    require: true,
+    required: true,
   },
   username: {
     type: String,
-    require: true,
+    required: true,
   },
   email: {
     type: String,
-    require: true,
+    required: true,
+    unique: true,
+    match: [/.+\@.+\..+/, "Please fill a valid email address"],
   },
   password: {
     type: String,
-    require: true,
+    required: true,
   },
-
   country: {
     type: String,
-    require: true,
+    required: true,
   },
   phoneNumber: {
     type: Number,
-    require: true,
+    required: true,
   },
 });
 
