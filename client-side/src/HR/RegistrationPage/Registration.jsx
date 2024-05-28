@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import pic from "./6310507.jpg"
-import "./RegistrationPage.css";
+import "./Registration.css";
 import InputGroup from 'react-bootstrap/InputGroup';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
