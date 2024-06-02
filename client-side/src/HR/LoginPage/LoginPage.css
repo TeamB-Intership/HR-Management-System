@@ -6,7 +6,7 @@
 
    
 }
-Form{
+.Login{
     background-color: rgba(255, 255, 255, 1);
     color:black;
     height: 75%;
@@ -16,7 +16,7 @@ Form{
 
 @media (max-width:480px) {
     
-    Form{
+    .Login{
         height: 75%;
         width: 70%;
         padding:10px;
@@ -25,11 +25,11 @@ Form{
     img{
        display: none;
       
-     
+      
     }
 }
  @media (min-width:481px) and (max-width:1024px) {
-    Form{
+    .Login{
         height: 75%;
         width: 50%;
         padding:15px;

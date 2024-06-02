@@ -58,7 +58,7 @@ const Login = () => {
     
 
 <img src={pic} alt='loginpic' className='h-75 w-25'/>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form className='Login' noValidate validated={validated} onSubmit={handleSubmit}>
       <h1>Login Page</h1>
 
       <div className="w-100 m-1">
@@ -102,7 +102,7 @@ const Login = () => {
         <div className="w-100 mt-3 ms-1">
         <Button variant="primary" type='submit' className='w-100'>Login</Button>
         </div>
-        <p>Don't have an account ? <a href='./Login.jsx'>Signup</a></p>
+        <p>Don't have an account ? <a href='../RegistrationPage/Registration'>Signup</a></p>
     </Form>  
     <ToastContainer />
     </div>

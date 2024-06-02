@@ -1,34 +1,51 @@
 .registrationPage {
-    background-image: url("./backroundimage.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
+    
+    background-image: url('./backroundimage2.jpg');
+    background-position:  center;
+    background-size: auto;
+    background-repeat: cover;
 }
 
-Form {
-    background-color: rgba(255, 255, 255, 1);
+.Registration{
+   position: relative;
+   top: 100px;
+    background-color: rgba(255, 255, 255, 0.8);
     color: black;
-    height: 75%;
-    width: 35%;
+    height: 120%;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: black;
+    font-size: 1.0rem;
     padding: 50px;
+    box-sizing: border-box;
 }
 
 @media (max-width: 480px) {
-    Form {
-        height: 75%;
-        width: 70%;
+    .Registration {
+        position: absolute;
+        top: 100px;
+        height: 170%;
+        width: 85%;
         padding: 10px;
         background-color: rgba(255, 255, 255, 0.8);
     }
-    img {
-        display: none;
+    .errors{
+        height: 50%;
+        width: 50%;
+        color: wheat;
     }
+  
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
-    Form {
-        height: 75%;
-        width: 50%;
+    .Registration {
+        height: 120%;
+        width: 60%;
         padding: 15px;
     }
 }
