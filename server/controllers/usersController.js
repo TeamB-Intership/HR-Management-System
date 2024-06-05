@@ -32,7 +32,6 @@ export const register = async (req, res) => {
       country,
       phoneNumber,
     });
-
     await newuser.save().catch((err) => console.log(err));
     return res.status(201).json({ message: "User created successfully" });
   } catch (error) {
@@ -56,15 +55,27 @@ export const login = async (req, res) => {
 
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
+    } else {
+      req.session.user = currUser;
+      res.status(200).json({ message: "Login success" });
     }
-
-    res.status(200).json({ message: "Login success" });
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
 
+//create session
+export const create_session = async (req, res) => {
+  res.status(200).json({ message: "sessions created" });
+};
 
+//delete sessions
+export const destroy_session = async (req, res) => {
+  if (req.session && req.session.user) {
+    delete req.session.user;
+  }
+  res.status(200).json({ message: "sessions deleted" });
+};
 
-export default { register, login };
+export default { register, login, create_session, destroy_session };
