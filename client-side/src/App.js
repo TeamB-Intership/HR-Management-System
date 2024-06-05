@@ -1,13 +1,12 @@
-import React from 'react'
-import Browser from './Routers/Browser'
-
+import React from "react";
+import Browser from "./Routers/Browser";
 
 const App = () => {
   return (
     <div>
- <Browser/>
+      <Browser />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
