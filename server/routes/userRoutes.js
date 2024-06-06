@@ -13,8 +13,9 @@ router.post("/login", userController.login);
 router.post("/logout", userController.destroy_session);
 
 //route to check if the sessions are working or not
-router.post("/profile",userController.create_session)
+router.post("/profile", userController.create_session);
 
-
+//this route is used to add a new employee to the database
+router.post("/addEmployee", userController.addEmployee);
 
 export default router;

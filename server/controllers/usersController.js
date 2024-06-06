@@ -1,17 +1,11 @@
 import User from "../models/users.js";
 import bcrypt from "bcrypt";
+import Employee from "../models/employee.js";
 
 //register a user
 export const register = async (req, res) => {
-  const {
-    firstname,
-    lastname,
-    username,
-    email,
-    password,
-    country,
-    phoneNumber,
-  } = req.body;
+  const { firstname, lastname, username, email, password, phoneNumber } =
+    req.body;
 
   try {
     const currUser = await User.findOne({ email });
@@ -29,7 +23,6 @@ export const register = async (req, res) => {
       username,
       email,
       password: hashedPassword,
-      country,
       phoneNumber,
     });
     await newuser.save().catch((err) => console.log(err));
@@ -78,4 +71,36 @@ export const destroy_session = async (req, res) => {
   res.status(200).json({ message: "sessions deleted" });
 };
 
-export default { register, login, create_session, destroy_session };
+//this route is to add a new employee
+const addEmployee = async (req, res) => {
+  const { firstname, lastname, email, phoneNumber, address } = req.body;
+
+  try {
+    const currEmployee = await User.findOne({ email });
+
+    if (currEmployee) {
+      return res.status(400).json({ message: "User already exists" });
+    }
+
+    const newEmployee = new Employee({
+      firstname,
+      lastname,
+      email,
+      phoneNumber,
+      address,
+    });
+    await newEmployee.save().catch((err) => console.log(err));
+    return res.status(201).json({ message: "employee created successfully" });
+  } catch (error) {
+    console.error("Error registering user:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export default {
+  register,
+  login,
+  create_session,
+  destroy_session,
+  addEmployee,
+};
