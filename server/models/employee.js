@@ -1,16 +1,12 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const employeeSchema = new Schema({
   firstname: {
     type: String,
     required: true,
   },
   lastname: {
-    type: String,
-    required: true,
-  },
-  username: {
     type: String,
     required: true,
   },
@@ -20,15 +16,15 @@ const userSchema = new Schema({
     unique: true,
     match: [/.+\@.+\..+/, "Please fill a valid email address"],
   },
-  password: {
-    type: String,
-    required: true,
-  },
   phoneNumber: {
     type: Number,
     required: true,
   },
+  address: {
+    type: String,
+    required: true,
+  },
 });
 
-const User = mongoose.model("User", userSchema);
-export default User;
+const Employee = mongoose.model("Employee", employeeSchema);
+export default Employee;
